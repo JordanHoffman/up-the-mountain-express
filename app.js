@@ -17,8 +17,9 @@ export const ${fileName} = () => ${fileName}_Obj`
 // }`
 
     // Specify the file path
-    const filePath = `./${fileName}.ts`;
-
+    // const filePath = `./${fileName}.ts`;
+    const filePath = `C:/Users/jghof/Desktop/programming/game_design/React games/up-the-mountain-ts/src/zzdev/testspritedata/${fileName}.ts`
+//C:\Users\jghof\Desktop\programming\game_design\React games\up-the-mountain-ts\src\zzdev\testspritedata
     // Write the TypeScript code string to the file
     fs.writeFile(filePath, tsCodeString, (err) => {
         if (err) {
