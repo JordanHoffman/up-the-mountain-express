@@ -12,14 +12,13 @@ app.post('/save', (req, res) => {
     // Convert the object to a string representing TypeScript code and prepend the export keyword
     const tsCodeString = `const ${fileName}_Obj = ${JSON.stringify(sprMdl.spriteData, null, 4)} 
 export const ${fileName} = () => ${fileName}_Obj`
-//     const tsCodeString = `export const ${fileName} = () => {
-//     return ${JSON.stringify(sprMdl.spriteData, null, 4)}
-// }`
 
     // Specify the file path
-    // const filePath = `./${fileName}.ts`;
-    const filePath = `C:/Users/jghof/Desktop/programming/game_design/React games/up-the-mountain-ts/src/zzdev/testspritedata/${fileName}.ts`
-//C:\Users\jghof\Desktop\programming\game_design\React games\up-the-mountain-ts\src\zzdev\testspritedata
+    const basePath = `C:/Users/jghof/Desktop/programming/game_design/React games/up-the-mountain-ts/src/`
+    const middlePath = toProduction ? 'model/spritedata/' : 'zzdev/testspritedata/'
+    const endPath = `${subFolderName}/${fileName}.ts`
+    const filePath = basePath + middlePath + endPath
+    
     // Write the TypeScript code string to the file
     fs.writeFile(filePath, tsCodeString, (err) => {
         if (err) {
